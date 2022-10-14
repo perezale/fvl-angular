@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { Team } from '../team';
 import { TeamDataService } from '../team-data.service';
 

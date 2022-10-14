@@ -4,12 +4,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TeamListComponent } from './team-list/team-list.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { TeamListModule } from './team-list/team-list.module';
 
 @NgModule({
-  declarations: [AppComponent, TeamListComponent, NavBarComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [AppComponent, NavBarComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, TeamListModule],
   providers: [],
   bootstrap: [AppComponent],
 })
