@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Team } from '../team';
+import { TeamDataService } from '../team-data.service';
 
 @Component({
   selector: 'team-list',
@@ -7,24 +8,13 @@ import { Team } from '../team';
   styleUrls: ['./team-list.component.scss'],
 })
 export class TeamListComponent implements OnInit {
-  teamsArray: Team[] = [
-    {
-      id: 1,
-      country: 'AR',
-      location: 'San Juan',
-      name: 'UPCN Voley',
-      short_name: 'UPCN',
-    },
-    {
-      id: 2,
-      country: 'IT',
-      location: 'Rome',
-      name: 'Lube Volley',
-      short_name: 'LUB',
-    },
-  ];
+  teamsData: Team[] = [];
 
-  constructor() {}
+  constructor(private teamsDataService: TeamDataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.teamsDataService
+      .getAll()
+      .subscribe((teams) => (this.teamsData = teams));
+  }
 }
