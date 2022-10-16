@@ -1,0 +1,6 @@
+.match-layout {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 100px 7ch 1fr 1fr 7ch 100px;
+  place-items: center;
+}

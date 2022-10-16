@@ -1,1 +1,33 @@
-<p>match-list works!</p>
+<section class="container">
+  <div class="row text-center">
+    <h4>MATCHS PLAYED</h4>
+  </div>
+  <div class="row justify-content-center w-100 m-0">
+    <section *ngFor="let match of matchsData" class="border border-2 my-2 match-layout p-2">
+      <div class="b-container">
+        <img src="{{flagsEndpoint}}/{{ match.local.country.toLocaleLowerCase() }}.png" class="rounded shadow"
+          alt="team flag" />
+      </div>
+      <p class="m-0 sets fw-bold d-flex gap-2">
+        <label>Sets</label> {{match.sets_local}}
+      </p>
+      <div class="w-100 text-end">
+        <h5 class="d-md-block d-none">{{match.local.name}}</h5>
+        <p class="m-0 fw-bold text-black text-center d-md-none">{{match.local.short_name}}</p>
+        <p class="m-0 d-none d-md-block">{{match.local.short_name}}</p>
+      </div>
+      <div class="w-100">
+        <h5 class="d-md-block d-none">{{match.visitante.name}}</h5>
+        <p class="m-0 fw-bold text-black text-center d-md-none">{{match.visitante.short_name}}</p>
+        <p class="m-0 d-none d-md-block">{{match.visitante.short_name}}</p>
+      </div>
+      <p class="m-0 sets fw-bold d-flex gap-2">
+        <label>Sets</label> {{match.sets_visitante}}
+      </p>
+      <div class="b-container b-visitante">
+        <img src="{{flagsEndpoint}}/{{ match.visitante.country.toLocaleLowerCase() }}.png" class="rounded shadow"
+          alt="team flag" />
+      </div>
+    </section>
+  </div>
+</section>
