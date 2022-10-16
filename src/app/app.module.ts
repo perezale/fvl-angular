@@ -5,11 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { TeamListModule } from './team-list/team-list.module';
+import { TeamListComponent } from './team-list/team-list.component';
 
 @NgModule({
-  declarations: [AppComponent, NavBarComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, TeamListModule],
+  declarations: [AppComponent, NavBarComponent, TeamListComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
 })

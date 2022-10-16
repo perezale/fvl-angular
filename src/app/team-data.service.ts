@@ -10,6 +10,7 @@ const endpoint = `${environment.apiUrl}/teams`;
 })
 export class TeamDataService {
   constructor(private http: HttpClient) {}
+
   getAll(): Observable<Team[]> {
     return this.http.get<Team[]>(endpoint);
   }
