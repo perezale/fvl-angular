@@ -2,22 +2,27 @@
   <div class="row">
     <h4>Teams on the league</h4>
   </div>
-  <div class="row gap-2">
-    <article *ngFor="let team of teamsData" class="border border-2 col-3 d-flex flex-column">
-      <div class="row flex-grow-1">
-        <div class="col-md-7 d-flex flex-column ps-4 py-3">
-          <h5>{{ team.name }}</h5>
-          <p>
-            <small class="text-muted">{{ team.short_name }} #{{team.id}}</small>
-          </p>
+  <div class="row">
+    <article *ngFor="let team of teamsData" class="col-6 col-sm-4 col-md-3 mb-2 p-1">
+      <div class="border border-2 d-flex flex-column p-3 pb-2 h-100">
+        <div class="d-flex flex-column flex-lg-row flex-grow-1">
+          <!-- Team flag -->
+          <div class="col-12 col-lg-5 d-flex justify-content-center align-items-center order-lg-2">
+            <img src="https://flagcdn.com/h80/{{ team.country.toLowerCase() }}.png" class="img-fluid rounded shadow"
+              alt="team flag" />
+          </div>
+          <!-- Team data -->
+          <div class="col-12 col-lg-7 d-flex flex-column mt-4 mt-lg-0">
+            <h5>{{ team.name }}</h5>
+            <p>
+              <small class="text-muted">{{ team.short_name }} #{{team.id}}</small>
+            </p>
+          </div>
         </div>
-        <div class="col-md-5 d-flex align-items-center">
-          <img src="https://flagcdn.com/h80/{{ team.country.toLowerCase() }}.png" class="img-fluid rounded shadow"
-            alt="team flag" />
+        <!-- Location -->
+        <div>
+          <p class="m-0">📍 {{ team.location }}</p>
         </div>
-      </div>
-      <div class="row pb-2">
-        <p class="m-0">📍 {{ team.location }}</p>
       </div>
     </article>
   </div>
