@@ -3,13 +3,13 @@
     <h4>MATCHS PLAYED</h4>
   </div>
   <div class="row justify-content-center w-100 m-0">
-    <section *ngFor="let match of matchsData" class="border border-2 my-2 match-layout p-2">
+    <section *ngFor="let match of matchsData" class="border border-2 my-2 match-layout p-2 px-sm-4">
       <div class="w-100">
         <img src="{{flagsEndpoint}}/{{ match.local.country.toLocaleLowerCase() }}.png" class="rounded shadow"
           alt="team flag" />
       </div>
       <p class="m-0 fw-bold d-flex gap-2">
-        <label>Sets</label> {{match.sets_local}}
+        <label class="d-none d-md-block">Sets</label> {{match.sets_local}}
       </p>
       <div class="w-100 text-end">
         <h5 class="d-md-block d-none">{{match.local.name}}</h5>
@@ -22,7 +22,7 @@
         <p class="m-0 d-none d-md-block">{{match.visitante.short_name}}</p>
       </div>
       <p class="m-0 fw-bold d-flex gap-2">
-        <label>Sets</label> {{match.sets_visitante}}
+        <label class="d-none d-md-block">Sets</label> {{match.sets_visitante}}
       </p>
       <div class="w-100 text-end">
         <img src="{{flagsEndpoint}}/{{ match.visitante.country.toLocaleLowerCase() }}.png" class="rounded shadow"
