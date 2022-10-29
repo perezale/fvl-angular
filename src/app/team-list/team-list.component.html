@@ -3,7 +3,7 @@
     <h4>Teams on the league</h4>
   </div>
   <div class="row">
-    <article *ngFor="let team of teamsData" class="col-6 col-sm-4 col-md-3 mb-2 p-1">
+    <article *ngFor="let team of teamsData" class="col-6 col-sm-4 col-md-3 mb-2 p-1" (click)="showTeam(team.id)">
       <div class="border border-2 d-flex flex-column p-3 pb-2 h-100">
         <div class="d-flex flex-column flex-lg-row flex-grow-1">
           <!-- Team flag -->
@@ -27,3 +27,4 @@
     </article>
   </div>
 </div>
+<detail-box></detail-box>

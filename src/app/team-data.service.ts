@@ -14,4 +14,8 @@ export class TeamDataService {
   getAll(): Observable<Team[]> {
     return this.http.get<Team[]>(endpoint);
   }
+
+  getOneById(id: number): Observable<Team> {
+    return this.http.get<Team>(`${endpoint}/${id}`);
+  }
 }

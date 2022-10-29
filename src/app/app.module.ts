@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { TeamListComponent } from './team-list/team-list.component';
 import { MatchListComponent } from './match-list/match-list.component';
+import { DetailBoxComponent } from './detail-box/detail-box.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { MatchListComponent } from './match-list/match-list.component';
     NavBarComponent,
     TeamListComponent,
     MatchListComponent,
+    DetailBoxComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

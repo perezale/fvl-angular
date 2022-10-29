@@ -1,0 +1,39 @@
+<dialog #teamDetail class="border border-2 p-4 position-relative" style="width: 500px;">
+  <div class="d-flex justify-content-between">
+    <div>
+      <h3>{{teamData?.name}}</h3>
+      <h4 class="text-muted">{{teamData?.short_name}}</h4>
+      <p>📍 {{ teamData?.location }}</p>
+    </div>
+    <div>
+      <img src="https://flagcdn.com/h80/{{ teamData?.country?.toLowerCase() ?? 'ar' }}.png"
+        class="img-fluid rounded shadow" />
+      <p class="mt-3 text-center text-muted">{{formatCountry()}}</p>
+    </div>
+  </div>
+
+  <section *ngFor="let match of matchs"
+    class="d-flex align-items-center justify-content-between border border-2 my-2 match-layout p-1">
+    <div class="w-100">
+      <img src="{{flagsEndpoint}}/{{ match.local.country.toLocaleLowerCase() }}.png" class="rounded shadow"
+        alt="team flag" />
+    </div>
+    <p class="m-0 fw-bold d-flex gap-2">
+      <label class="d-none d-md-block">Sets</label> {{match.sets_local}}
+    </p>
+    <div class="w-100 text-end pe-1">
+      <p class="m-0">{{match.local.short_name}}</p>
+    </div>
+    <div class="w-100 ps-1">
+      <p class="m-0">{{match.visitante.short_name}}</p>
+    </div>
+    <p class="m-0 fw-bold d-flex gap-2">
+      <label class="d-none d-md-block">Sets</label> {{match.sets_visitante}}
+    </p>
+    <div class="w-100 text-end">
+      <img src="{{flagsEndpoint}}/{{ match.visitante.country.toLocaleLowerCase() }}.png" class="rounded shadow"
+        alt="team flag" />
+    </div>
+  </section>
+
+</dialog>
