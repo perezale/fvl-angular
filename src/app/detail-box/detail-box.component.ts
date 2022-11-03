@@ -10,10 +10,9 @@ import { TeamModalService } from '../team-modal.service';
 })
 export class DetailBoxComponent implements OnInit {
   @ViewChild('teamDetail') dialog: ElementRef<HTMLDialogElement>;
-
   teamData: Team | null = null;
   matchs: Match[] = [];
-  flagsEndpoint = 'https://flagcdn.com/h40';
+  flagsEndpoint = 'https://flagcdn.com/h20';
   JSON = JSON;
 
   constructor(private teamModalService: TeamModalService) {}
@@ -32,16 +31,15 @@ export class DetailBoxComponent implements OnInit {
   }
 
   orderMatchs() {
-    this.matchs = [];
     this.teamData?.matchsLocal?.forEach((data) => this.matchs.push(data));
     this.teamData?.matchsVisitante?.forEach((data) => this.matchs.push(data));
     this.matchs.sort((a, b) => a.id - b.id);
-    console.log(this.matchs);
   }
 
   closeModal() {
     this.dialog?.nativeElement.close();
     this.teamData = null;
+    this.matchs = [];
   }
 
   formatCountry() {
