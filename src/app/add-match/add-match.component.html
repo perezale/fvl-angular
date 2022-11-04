@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <form class="col-4">
+      <h4 class="text-muted">participating teams</h4>
+      <div class="mb-3">
+        <label for="local">Team 1 - Local</label>
+        <select name="local" id="local" class="form-control" [(ngModel)]="data.local">
+          <option value="0" selected disabled>
+            Select a team from the list
+          </option>
+          <option *ngFor="let team of teamList" value="{{team.id}}">
+            {{team.name}}
+          </option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="visitante">Team 2 - Visitante</label>
+        <select name="visitante" id="visitante" class="form-control" [(ngModel)]="data.visitante">
+          <option value="0" selected disabled>
+            Select a team from the list
+          </option>
+          <option *ngFor="let team of teamList" value="{{team.id}}">
+            {{team.name}}
+          </option>
+        </select>
+      </div>
+      <h4 class="text-muted">result</h4>
+      <div class="mb-3">
+        <label for="sets_local">Sets Local</label>
+        <input type="number" class="form-control" name="sets_local" id="sets_local" min="0" max="3"
+          [(ngModel)]="data.sets_local" required>
+      </div>
+      <div class="mb-3">
+        <label for="sets_visitante">Sets Visitante</label>
+        <input type="number" class="form-control" name="sets_visitante" id="sets_visitante" min="0" max="3"
+          [(ngModel)]="data.sets_visitante" required>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="create(this.data)">Create Match</button>
+    </form>
+  </div>
+</div>
