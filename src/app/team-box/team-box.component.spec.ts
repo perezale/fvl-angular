@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DetailBoxComponent } from './detail-box.component';
+import { TeamBoxComponent } from './team-box.component';
 
 describe('DetailBoxComponent', () => {
-  let component: DetailBoxComponent;
-  let fixture: ComponentFixture<DetailBoxComponent>;
+  let component: TeamBoxComponent;
+  let fixture: ComponentFixture<TeamBoxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DetailBoxComponent ]
-    })
-    .compileComponents();
+      declarations: [TeamBoxComponent],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(DetailBoxComponent);
+    fixture = TestBed.createComponent(TeamBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

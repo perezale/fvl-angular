@@ -5,15 +5,14 @@ import { TeamModalService } from '../team-modal.service';
 
 @Component({
   selector: 'detail-box',
-  templateUrl: './detail-box.component.html',
-  styleUrls: ['./detail-box.component.scss'],
+  templateUrl: './team-box.component.html',
+  styleUrls: ['./team-box.component.scss'],
 })
-export class DetailBoxComponent implements OnInit {
-  @ViewChild('teamDetail') dialog: ElementRef<HTMLDialogElement>;
-  teamData: Team | null = null;
+export class TeamBoxComponent implements OnInit {
+  box: HTMLDialogElement;
+  data: Team | null = null;
   matchs: Match[] = [];
   flagsEndpoint = 'https://flagcdn.com/h20';
-  JSON = JSON;
 
   constructor(private teamModalService: TeamModalService) {}
 
@@ -21,29 +20,33 @@ export class DetailBoxComponent implements OnInit {
 
   ngAfterViewInit() {
     this.teamModalService.teamData.subscribe((data) => {
-      this.teamData = data;
+      if (!data) return;
 
-      if (this.teamData) {
-        this.orderMatchs();
-        this.dialog.nativeElement.showModal();
-      }
+      this.data = data;
+      this.orderMatchs();
+      this.box.showModal();
     });
   }
 
+  @ViewChild('teamDetail')
+  set boxRef(ref: ElementRef<HTMLDialogElement>) {
+    this.box = ref.nativeElement;
+  }
+
   orderMatchs() {
-    this.teamData?.matchsLocal?.forEach((data) => this.matchs.push(data));
-    this.teamData?.matchsVisitante?.forEach((data) => this.matchs.push(data));
+    this.data?.matchsLocal?.forEach((data) => this.matchs.push(data));
+    this.data?.matchsVisitante?.forEach((data) => this.matchs.push(data));
     this.matchs.sort((a, b) => a.id - b.id);
   }
 
   closeModal() {
-    this.dialog?.nativeElement.close();
-    this.teamData = null;
+    this.box.close();
+    this.data = null;
     this.matchs = [];
   }
 
   formatCountry() {
     const regionNames = new Intl.DisplayNames(['en'], { type: 'region' });
-    return regionNames.of(this.teamData?.country ?? 'ar');
+    return regionNames.of(this.data?.country ?? 'ar');
   }
 }
