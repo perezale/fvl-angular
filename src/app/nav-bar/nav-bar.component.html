@@ -11,8 +11,13 @@
       <li class="nav-item">
         <a class="nav-link" [routerLink]="'/teams'" [routerLinkActive]="['active']">Teams</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" [routerLink]="'/matchs'" [routerLinkActive]="['active']">Matchs played</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true"
+          aria-expanded="false">Matchs</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" [routerLink]="'/matchs'">Matchs played</a>
+          <a class="dropdown-item" [routerLink]="'/matchs/add'">New Match</a>
+        </div>
       </li>
     </ul>
   </div>
