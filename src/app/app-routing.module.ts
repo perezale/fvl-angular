@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'teams', component: TeamListComponent },
   { path: 'matchs', component: MatchListComponent },
   { path: 'matchs/add', component: AddMatchComponent },
+  { path: 'matchs/:id/update', component: AddMatchComponent },
 ];
 
 @NgModule({

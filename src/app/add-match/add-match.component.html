@@ -35,7 +35,10 @@
         <input type="number" class="form-control" name="sets_visitante" id="sets_visitante" min="0" max="3"
           [(ngModel)]="data.sets_visitante" required>
       </div>
-      <button type="button" class="btn btn-primary" (click)="create(this.data)">Create Match</button>
+      <button *ngIf="!this.data.id" type="button" class="btn btn-primary" (click)="create(this.data)">Create
+        Match</button>
+      <button *ngIf="this.data.id" type="button" class="btn btn-primary" (click)="update(this.data)">Update
+        Match</button>
     </form>
   </div>
 </div>

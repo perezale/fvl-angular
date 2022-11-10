@@ -17,7 +17,19 @@ export class MatchDataService {
     return this.http.get<Match[]>(`${endpoint}?populate=true`);
   }
 
+  getById(id: number): Observable<Match> {
+    return this.http.get<Match>(`${endpoint}/${id}`);
+  }
+
   addMatch(data: NewMatchDto): Observable<Match> {
     return this.http.post<Match>(endpoint, data);
+  }
+
+  updateMatch(data: NewMatchDto): Observable<Match> {
+    return this.http.put<Match>(`${endpoint}/${data.id}`, data);
+  }
+
+  deleteMatch(id: number): Observable<any> {
+    return this.http.delete(`${endpoint}/${id}`);
   }
 }

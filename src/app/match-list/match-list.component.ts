@@ -18,4 +18,12 @@ export class MatchListComponent implements OnInit {
       .getAll()
       .subscribe((matchs) => (this.matchsData = matchs));
   }
+
+  deleteMatch(id: number) {
+    this.matchDataService.deleteMatch(id).subscribe({
+      next: () =>
+        (this.matchsData = this.matchsData.filter((match) => match.id !== id)),
+      error: (e) => console.error(e),
+    });
+  }
 }
