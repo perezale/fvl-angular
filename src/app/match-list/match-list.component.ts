@@ -20,6 +20,9 @@ export class MatchListComponent implements OnInit {
   }
 
   deleteMatch(id: number) {
+    const confirm = window.confirm('Delete match?');
+    if (!confirm) return;
+
     this.matchDataService.deleteMatch(id).subscribe({
       next: () =>
         (this.matchsData = this.matchsData.filter((match) => match.id !== id)),
