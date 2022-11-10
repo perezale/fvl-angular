@@ -32,6 +32,7 @@ export class TeamBoxComponent implements OnInit {
 
   closeModal() {
     this.teamModalService.setTeam(null);
+    this.matchs = [];
   }
 
   formatCountry() {
