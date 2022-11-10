@@ -6,11 +6,11 @@ import { TeamDataService } from '../team-data.service';
 import { NewMatchDto } from './match.dto';
 
 @Component({
-  selector: 'app-add-match',
-  templateUrl: './add-match.component.html',
-  styleUrls: ['./add-match.component.scss'],
+  selector: 'app-match',
+  templateUrl: './match.component.html',
+  styleUrls: ['./match.component.scss'],
 })
-export class AddMatchComponent implements OnInit {
+export class MatchComponent implements OnInit {
   data: NewMatchDto = {
     id: null,
     local: 0,

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Match } from './match';
 import { environment } from 'src/environments/environment';
-import { NewMatchDto } from './add-match/match.dto';
+import { NewMatchDto } from './match/match.dto';
 
 const endpoint = `${environment.apiUrl}/matchs`;
 

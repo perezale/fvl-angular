@@ -11,7 +11,12 @@ export class TeamModalService {
 
   constructor(private teamDataService: TeamDataService) {}
 
-  setTeam(id: number) {
+  setTeam(id: number | null) {
+    if (!id) {
+      this.teamData.next(null);
+      return;
+    }
+
     this.teamDataService
       .getOneById(id)
       .subscribe((data) => this.teamData.next(data));

@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Match } from '../match';
 import { Team } from '../team';
 import { TeamModalService } from '../team-modal.service';
@@ -9,7 +9,6 @@ import { TeamModalService } from '../team-modal.service';
   styleUrls: ['./team-box.component.scss'],
 })
 export class TeamBoxComponent implements OnInit {
-  box: HTMLDialogElement;
   data: Team | null = null;
   matchs: Match[] = [];
   flagsEndpoint = 'https://flagcdn.com/h20';
@@ -20,17 +19,9 @@ export class TeamBoxComponent implements OnInit {
 
   ngAfterViewInit() {
     this.teamModalService.teamData.subscribe((data) => {
-      if (!data) return;
-
       this.data = data;
       this.orderMatchs();
-      this.box.showModal();
     });
-  }
-
-  @ViewChild('teamDetail')
-  set boxRef(ref: ElementRef<HTMLDialogElement>) {
-    this.box = ref.nativeElement;
   }
 
   orderMatchs() {
@@ -40,9 +31,7 @@ export class TeamBoxComponent implements OnInit {
   }
 
   closeModal() {
-    this.box.close();
-    this.data = null;
-    this.matchs = [];
+    this.teamModalService.setTeam(null);
   }
 
   formatCountry() {
