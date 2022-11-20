@@ -4,7 +4,7 @@ import { Team } from '../team';
 import { TeamModalService } from '../team-modal.service';
 
 @Component({
-  selector: 'detail-box',
+  selector: 'team-box',
   templateUrl: './team-box.component.html',
   styleUrls: ['./team-box.component.scss'],
 })
