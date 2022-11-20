@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Match } from './match';
 import { environment } from 'src/environments/environment';
-import { NewMatchDto } from './match/match.dto';
+import { MatchDto } from './match/match.dto';
 
 const endpoint = `${environment.apiUrl}/matchs`;
 
@@ -21,11 +21,11 @@ export class MatchDataService {
     return this.http.get<Match>(`${endpoint}/${id}`);
   }
 
-  addMatch(data: NewMatchDto): Observable<Match> {
+  addMatch(data: MatchDto): Observable<Match> {
     return this.http.post<Match>(endpoint, data);
   }
 
-  updateMatch(data: NewMatchDto): Observable<Match> {
+  updateMatch(data: MatchDto): Observable<Match> {
     return this.http.put<Match>(`${endpoint}/${data.id}`, data);
   }
 

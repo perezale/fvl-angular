@@ -3,7 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatchDataService } from '../match-data.service';
 import { Team } from '../team';
 import { TeamDataService } from '../team-data.service';
-import { NewMatchDto } from './match.dto';
+import { MatchDto } from './match.dto';
 
 @Component({
   selector: 'app-match',
@@ -11,7 +11,7 @@ import { NewMatchDto } from './match.dto';
   styleUrls: ['./match.component.scss'],
 })
 export class MatchComponent implements OnInit {
-  data: NewMatchDto = {
+  data: MatchDto = {
     id: null,
     local: 0,
     sets_local: 0,
@@ -42,13 +42,28 @@ export class MatchComponent implements OnInit {
     });
   }
 
-  create(data: NewMatchDto) {
+  isValid(data: MatchDto) {
+    if (
+      data.local === 0 ||
+      data.visitante === 0 ||
+      data.sets_local < 0 ||
+      data.sets_visitante < 0
+    ) {
+      return false;
+    }
+
+    return true;
+  }
+
+  create(data: MatchDto) {
+    if (!this.isValid(data)) return;
     this.matchDataService
       .addMatch(data)
       .subscribe(() => this.router.navigate(['/matchs']));
   }
 
-  update(data: NewMatchDto) {
+  update(data: MatchDto) {
+    if (!this.isValid(data)) return;
     this.matchDataService
       .updateMatch(data)
       .subscribe(() => this.router.navigate(['/matchs']));

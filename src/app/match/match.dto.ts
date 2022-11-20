@@ -1,4 +1,4 @@
-export interface NewMatchDto {
+export interface MatchDto {
   id: null | number;
   local: number;
   visitante: number;
