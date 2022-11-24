@@ -15,9 +15,7 @@ export class TeamBoxComponent implements OnInit {
 
   constructor(private teamModalService: TeamModalService) {}
 
-  ngOnInit(): void {}
-
-  ngAfterViewInit() {
+  ngOnInit(): void {
     this.teamModalService.teamData.subscribe((data) => {
       this.data = data;
       this.orderMatchs();
