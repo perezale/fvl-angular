@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://fvl-api.onrender.com',
+  // @ts-ignore
+  apiUrl: window['env']['apiUrl'],
 };
