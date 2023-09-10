@@ -9,7 +9,7 @@ env:
 
 jobs:
   run-tests:
-    uses: ./.github/workflows/run-tests.yml@main
+    uses: ./.github/workflows/run-tests.yml
 
   build-images:
     runs-on: ubuntu-latest
