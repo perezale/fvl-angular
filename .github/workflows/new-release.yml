@@ -8,8 +8,12 @@ env:
   NAME: lichodev/fvl-angular
 
 jobs:
-  build:
+  run-tests:
+    uses: ./.github/workflows/run-tests.yml@main
+
+  build-images:
     runs-on: ubuntu-latest
+    needs: [run-tests]
 
     steps:
       - name: "Get repository"
