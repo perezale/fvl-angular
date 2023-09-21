@@ -2,6 +2,8 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/26091661-1508-4eb4-8063-b57e40b7f2ed/deploy-status)](https://app.netlify.com/sites/fvl-angular/deploys)
 
+[![codecov](https://codecov.io/gh/lichodev/fvl-angular/graph/badge.svg?token=CTG67OCIMA)](https://codecov.io/gh/lichodev/fvl-angular)
+
 Deploy: [Netlify - https://fvl.licho.tk](https://fvl.licho.tk)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.5.
