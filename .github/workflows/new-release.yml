@@ -34,3 +34,6 @@ jobs:
 
       - name: "Push Docker images"
         run: "docker push -a ${{ env.NAME }}"
+      
+      - name: "Trigger deploy on Netlify"
+        run: "curl -X POST -d {} ${{ secrets.NETLIFY_HOOK }}"
